@@ -1,5 +1,5 @@
 package models;
 
-public class dd {
+public class Bank {
 
 }
