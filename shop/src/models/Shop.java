@@ -186,7 +186,6 @@ public class Shop {
 			System.out.println("존재하지 않는 메뉴 입니다.");
 		}
 	}
-
 	private void shopMenu() {
 
 	}
