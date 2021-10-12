@@ -138,6 +138,7 @@ public class Shop {
 			System.out.print("선택 : ");
 			int sel = scan.nextInt();
 			if (sel == 1) {
+				um.printUser();
 			} else if (sel == 2) {
 			} else if (sel == 3) {
 			} else if (sel == 0) {
@@ -165,15 +166,15 @@ public class Shop {
 			} else if (sel == 2) {
 				cartMenu();
 			} else if (sel == 3) {
-				um.delAcc();
-				run = false;
-			} else if (sel == 0) {
 				if (um.getLog() != -1) {
-					um.logOut();
+					um.delAcc();
 					run = false;
 				} else {
-					run = true;
+					continue;
 				}
+			} else if (sel == 0) {
+				um.logOut();
+				run = false;
 			} else {
 				System.out.println("존재하지 않는 메뉴 입니다.");
 			}

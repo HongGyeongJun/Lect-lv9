@@ -21,14 +21,17 @@ public class UserManager {
 	}
 
 	public void joinUser() {
+
 		System.out.println("id : ");
 		String id = Shop.scan.next();
 		System.out.println("pw : ");
 		String pw = Shop.scan.next();
 
 		User temp = new User(id, pw, 0);
+
 		this.users.add(temp);
 		System.out.println(temp.getId() + "님 가입을 축하합니다.");
+
 	}
 
 	public boolean delAcc() {
@@ -83,7 +86,7 @@ public class UserManager {
 
 	public void printUser() {
 		for (int i = 0; i < this.users.size(); i++) {
-			System.out.printf("[%d]\n", i);
+			System.out.printf("[%d]\n", i + 1);
 			users.get(i).print();
 		}
 	}
