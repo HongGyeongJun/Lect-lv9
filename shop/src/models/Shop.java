@@ -2,10 +2,14 @@ package models;
 
 import java.util.Scanner;
 
+import controller.UserManager;
+
 public class Shop {
-	Scanner scan = new Scanner(System.in);
+	public static Scanner scan = new Scanner(System.in);
 
 	public static Shop instance = new Shop();
+
+	private UserManager um = UserManager.instance;
 
 	private Shop() {
 	}
@@ -25,9 +29,12 @@ public class Shop {
 			int sel = scan.nextInt();
 
 			if (sel == 1) {
+				um.joinUser();
 			} else if (sel == 2) {
 			} else if (sel == 3) {
-				loginMenu();
+				if (um.login()) {
+					loginMenu();
+				}
 			} else if (sel == 4) {
 			} else if (sel == 100) {
 				managerMenu();
@@ -186,6 +193,7 @@ public class Shop {
 			System.out.println("존재하지 않는 메뉴 입니다.");
 		}
 	}
+
 	private void shopMenu() {
 
 	}
