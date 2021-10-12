@@ -19,10 +19,8 @@ public class Shop {
 		boolean run = true;
 
 		while (run) {
-			System.out.println("1.[가입]");
-			System.out.println("2.[탈퇴]");
-			System.out.println("3.[로그인]");
-			System.out.println("4.[로그아웃]");
+			System.out.println("1.[회원 가입]");
+			System.out.println("2.[로그인]");
 			System.out.println("100.[관리자]");
 			System.out.println("0.[종료]");
 			System.out.print("선택 : ");
@@ -31,11 +29,9 @@ public class Shop {
 			if (sel == 1) {
 				um.joinUser();
 			} else if (sel == 2) {
-			} else if (sel == 3) {
 				if (um.login()) {
 					loginMenu();
 				}
-			} else if (sel == 4) {
 			} else if (sel == 100) {
 				managerMenu();
 			} else if (sel == 0) {
@@ -158,7 +154,8 @@ public class Shop {
 		while (run) {
 			System.out.println("1.[쇼핑]");
 			System.out.println("2.[장바구니 목록]");
-			System.out.println("0.[뒤로가기]");
+			System.out.println("3.[회원 탈퇴]");
+			System.out.println("0.[로그아웃]");
 			System.out.print("선택 : ");
 
 			int sel = scan.nextInt();
@@ -167,8 +164,16 @@ public class Shop {
 				shopMenu();
 			} else if (sel == 2) {
 				cartMenu();
-			} else if (sel == 0) {
+			} else if (sel == 3) {
+				um.delAcc();
 				run = false;
+			} else if (sel == 0) {
+				if (um.getLog() != -1) {
+					um.logOut();
+					run = false;
+				} else {
+					run = true;
+				}
 			} else {
 				System.out.println("존재하지 않는 메뉴 입니다.");
 			}

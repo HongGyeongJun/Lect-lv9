@@ -2,14 +2,14 @@ package models;
 
 public class User {
 
-	private int userCode;
 	private String id;
 	private String pw;
+	private int money;
 
-	public User(int userCode, String id, String pw) {
-		this.userCode = userCode;
+	public User(String id, String pw, int money) {
 		this.id = id;
 		this.pw = pw;
+		this.money = money;
 	}
 
 	public String getId() {
@@ -28,8 +28,11 @@ public class User {
 		this.pw = pw;
 	}
 
-	public int getUserCode() {
-		return userCode;
+	public int getMoney() {
+		return this.money;
 	}
 
+	public void print() {
+		System.out.println("[" + id + "]" + "ฑÝพื : " + money);
+	}
 }

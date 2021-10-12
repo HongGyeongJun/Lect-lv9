@@ -1,7 +1,6 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.Vector;
 
 import models.Shop;
 import models.User;
@@ -9,11 +8,17 @@ import models.User;
 public class UserManager {
 	public static UserManager instance = new UserManager();
 
+	private int log = -1;
+
 	private UserManager() {
 
 	}
 
-	private ArrayList<User> users = new ArrayList<>();
+	private Vector<User> users = new Vector<User>();
+
+	public int getLog() {
+		return this.log;
+	}
 
 	public void joinUser() {
 		System.out.println("id : ");
@@ -21,33 +26,31 @@ public class UserManager {
 		System.out.println("pw : ");
 		String pw = Shop.scan.next();
 
-		boolean check = false;
-
-		for (User user : this.users) {
-			if (id.equals(user.getId())) {
-				check = true;
-			}
-		}
-		if (!check) {
-			User newUser = new User(randomCode(), id, pw);
-			this.users.add(newUser);
-		} else {
-			System.out.println("이미 존재하는 아이디 입니다.");
-		}
+		User temp = new User(id, pw, 0);
+		this.users.add(temp);
+		System.out.println(temp.getId() + "님 가입을 축하합니다.");
 	}
 
-	private int randomCode() {
-		Random ran = new Random();
-		while (true) {
-			int rCode = ran.nextInt(8999) + 1000;
+	public boolean delAcc() {
+		System.out.println("id : ");
+		String id = Shop.scan.next();
+		System.out.println("pw : ");
+		String pw = Shop.scan.next();
 
-			boolean check = false;
-			for (User user : this.users) {
-				if (rCode == user.getUserCode()) {
-					check = true;
-				}
+		for (int i = 0; i < this.users.size(); i++) {
+			if (this.users.get(i).getId().equals(id) && this.users.get(i).getPw().equals(pw)) {
+				this.users.remove(this.log);
+				this.log = -1;
+				break;
 			}
 		}
+		if (this.log != -1) {
+			System.out.println("아이디와 비밀번호를 다시 확인해 주세요.");
+		} else {
+			System.out.println("회원 탈퇴 되었습니다.");
+			return true;
+		}
+		return false;
 	}
 
 	public boolean login() {
@@ -58,9 +61,30 @@ public class UserManager {
 
 		for (int i = 0; i < this.users.size(); i++) {
 			if (this.users.get(i).getId().equals(id) && this.users.get(i).getPw().equals(pw)) {
-				return true;
+				this.log = i;
+				break;
 			}
 		}
+		if (this.log == -1) {
+			System.out.println("아이디와 비밀번호를 다시 확인해 주세요.");
+		} else {
+			System.out.println(users.get(this.log).getId() + "님 로그인");
+			return true;
+		}
 		return false;
+	}
+
+	public void logOut() {
+		if (this.log != -1) {
+			System.out.println(users.get(this.log).getId() + "님 로그아웃");
+			this.log = -1;
+		}
+	}
+
+	public void printUser() {
+		for (int i = 0; i < this.users.size(); i++) {
+			System.out.printf("[%d]\n", i);
+			users.get(i).print();
+		}
 	}
 }
