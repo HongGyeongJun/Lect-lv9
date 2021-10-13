@@ -75,4 +75,37 @@ public class ItemManager {
 			}
 		}
 	}
+
+	public void addItem() {
+		System.out.println("추가할 아이템 이름을 입력하세요.");
+		String name = scan.next();
+		System.out.println("가격을 입력하세요.");
+		int price = scan.nextInt();
+		printCategory();
+		System.out.println("카테고리를 선택하세요.");
+		int sel = scan.nextInt();
+		Item temp = new Item(name, price, this.category.get(sel));
+		this.itemList.add(temp);
+	}
+
+	public void addCategory() {
+		System.out.println("카테고리 이름을 입력하세요.");
+		String name = scan.next();
+		this.category.add(name);
+	}
+
+	public void addCart(String userId, int cateId, int itemId) {
+		int num = 0;
+		Cart temp = new Cart();
+		temp.setUserId(userId);
+		for (int i = 0; i < this.itemList.size(); i++) {
+			if (this.category.get(cateId).equals(this.itemList.get(i).getCategory())) {
+				if (itemId == num) {
+					temp.setItemName(this.itemList.get(i).getName());
+				}
+				num++;
+			}
+		}
+		this.cartList.add(temp);
+	}
 }

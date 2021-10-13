@@ -6,13 +6,13 @@ public class Item {
 	private String category;
 
 	public Item(String name, int price, String category) {
-		this.name = name;
+		this.setName(name);
 		this.price = price;
 		this.setCategory(category);
 	}
 
 	public void print() {
-		System.out.println("[" + this.name + "]" + "[" + this.price + "]" + "[" + this.getCategory() + "]");
+		System.out.println("[" + this.getName() + "]" + "[" + this.price + "]" + "[" + this.getCategory() + "]");
 	}
 
 	public String getCategory() {
@@ -21,6 +21,14 @@ public class Item {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

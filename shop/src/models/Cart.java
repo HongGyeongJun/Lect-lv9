@@ -5,6 +5,14 @@ public class Cart {
 	private String userId;
 	private String itemName;
 
+	public String getItemName() {
+		return this.itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}

@@ -63,7 +63,7 @@ public class Shop {
 			} else if (sel == 2) {
 				categoryMenu();
 			} else if (sel == 3) {
-				fixCartMenu();
+				cartMenu();
 			} else if (sel == 4) {
 				userMenu();
 			} else if (sel == 0) {
@@ -84,6 +84,7 @@ public class Shop {
 
 			int sel = scan.nextInt();
 			if (sel == 1) {
+				im.printItemList();
 			} else if (sel == 2) {
 			} else if (sel == 3) {
 			} else if (sel == 0) {
@@ -114,24 +115,6 @@ public class Shop {
 		}
 	}
 
-	private void fixCartMenu() {
-		while (true) {
-			System.out.println("1.[장바구니 조회]");
-			System.out.println("2.[장바구니 추가]");
-			System.out.println("3.[장바구니 삭제]");
-			System.out.println("0.[뒤로가기]");
-			System.out.print("선택 : ");
-			int sel = scan.nextInt();
-			if (sel == 1) {
-			} else if (sel == 2) {
-			} else if (sel == 3) {
-			} else if (sel == 0) {
-				break;
-			} else {
-				System.out.println("존재하지 않는 메뉴 입니다.");
-			}
-		}
-	}
 
 	private void userMenu() {
 		while (true) {
