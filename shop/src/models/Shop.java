@@ -11,7 +11,7 @@ public class Shop {
 	public static Shop instance = new Shop();
 
 	private UserManager um = UserManager.instance;
-	
+
 	private ItemManager im = ItemManager.instance;
 
 	private Shop() {
@@ -86,6 +86,7 @@ public class Shop {
 			if (sel == 1) {
 				im.printItemList();
 			} else if (sel == 2) {
+				im.addItem();
 			} else if (sel == 3) {
 			} else if (sel == 0) {
 				break;
@@ -106,6 +107,7 @@ public class Shop {
 			if (sel == 1) {
 				im.printCategory();
 			} else if (sel == 2) {
+				im.addCategory();
 			} else if (sel == 3) {
 			} else if (sel == 0) {
 				break;
@@ -114,7 +116,6 @@ public class Shop {
 			}
 		}
 	}
-
 
 	private void userMenu() {
 		while (true) {
@@ -189,6 +190,20 @@ public class Shop {
 	}
 
 	private void shopMenu() {
+
+		boolean run = true;
+		while (run) {
+			im.printCategory();
+			System.out.println("카테고리를 입력하세요.[종료 : -1]");
+			int cateId = scan.nextInt();
+			if (cateId == -1) {
+				break;
+			}
+			im.printItemList();
+			System.out.println("아이템 번호를 입력하세요.");
+			int itId = scan.nextInt();
+			im.addCart(um.users.get(um.getLog()).getId(), cateId, itId);
+		}
 
 	}
 }

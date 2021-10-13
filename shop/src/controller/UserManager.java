@@ -9,13 +9,12 @@ public class UserManager {
 	public static UserManager instance = new UserManager();
 
 	public Vector<User> users = new Vector<User>();
-	
+
 	private int log = -1;
 
 	private UserManager() {
 
 	}
-
 
 	public int getLog() {
 		return this.log;
@@ -95,4 +94,9 @@ public class UserManager {
 			users.get(i).print();
 		}
 	}
+
+	public void addUser() {
+
+	}
+
 }
