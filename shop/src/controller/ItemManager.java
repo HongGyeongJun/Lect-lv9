@@ -83,9 +83,14 @@ public class ItemManager {
 		int price = scan.nextInt();
 		printCategory();
 		System.out.println("카테고리를 선택하세요.");
-		int sel = scan.nextInt();
+		int sel = scan.nextInt() - 1;
 		Item temp = new Item(name, price, this.category.get(sel));
 		this.itemList.add(temp);
+		System.out.println(name + " 상품이 추가 되었습니다");
+	}
+
+	public void delItem() {
+
 	}
 
 	public void addCategory() {

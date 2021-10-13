@@ -10,9 +10,9 @@ public class Shop {
 
 	public static Shop instance = new Shop();
 
-	private UserManager um = UserManager.instance;
+	private UserManager um = new UserManager();
 
-	private ItemManager im = ItemManager.instance;
+	private ItemManager im = new ItemManager();
 
 	private Shop() {
 	}
@@ -128,7 +128,9 @@ public class Shop {
 			if (sel == 1) {
 				um.printUser();
 			} else if (sel == 2) {
+				um.addUser();
 			} else if (sel == 3) {
+				um.delUser();
 			} else if (sel == 0) {
 				break;
 			} else {

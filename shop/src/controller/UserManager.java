@@ -12,7 +12,7 @@ public class UserManager {
 
 	private int log = -1;
 
-	private UserManager() {
+	public UserManager() {
 
 	}
 
@@ -97,6 +97,28 @@ public class UserManager {
 
 	public void addUser() {
 
+		System.out.println("id : ");
+		String id = Shop.scan.next();
+		System.out.println("pw : ");
+		String pw = Shop.scan.next();
+
+		User temp = new User(id, pw, 0);
+
+		this.users.add(temp);
+
+		System.out.println(temp.getId() + "님이 추가되었습니다.");
+
 	}
 
+	public void delUser() {
+		while (true) {
+			printUser();
+			System.out.println("삭제하실 유저 번호를 입력하세요.");
+			System.out.println("선택 : ");
+			int sel = Shop.scan.nextInt();
+			
+			this.users.remove(sel - 1);
+			System.out.println("삭제 완료.");
+		}
+	}
 }
