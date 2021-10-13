@@ -8,16 +8,21 @@ import models.User;
 public class UserManager {
 	public static UserManager instance = new UserManager();
 
+	public Vector<User> users = new Vector<User>();
+	
 	private int log = -1;
 
 	private UserManager() {
 
 	}
 
-	private Vector<User> users = new Vector<User>();
 
 	public int getLog() {
 		return this.log;
+	}
+
+	public void setLog(int log) {
+		this.log = log;
 	}
 
 	public void joinUser() {

@@ -2,6 +2,7 @@ package models;
 
 import java.util.Scanner;
 
+import controller.ItemManager;
 import controller.UserManager;
 
 public class Shop {
@@ -10,6 +11,8 @@ public class Shop {
 	public static Shop instance = new Shop();
 
 	private UserManager um = UserManager.instance;
+	
+	private ItemManager im = ItemManager.instance;
 
 	private Shop() {
 	}
@@ -100,6 +103,7 @@ public class Shop {
 			System.out.print("선택 : ");
 			int sel = scan.nextInt();
 			if (sel == 1) {
+				im.printCategory();
 			} else if (sel == 2) {
 			} else if (sel == 3) {
 			} else if (sel == 0) {
@@ -191,6 +195,7 @@ public class Shop {
 		System.out.print("선택 : ");
 		int sel = scan.nextInt();
 		if (sel == 1) {
+			im.printCart(um.users.get(um.getLog()));
 		} else if (sel == 2) {
 		} else if (sel == 3) {
 		} else if (sel == 0) {
