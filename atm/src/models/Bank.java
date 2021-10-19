@@ -3,14 +3,12 @@ package models;
 import java.util.Scanner;
 
 public class Bank {
-
 	public static Scanner scan = new Scanner(System.in);
-
 	public static int log = -1;
-
 	private static String name;
 
-	private Bank() { // new 를 통한 Bank 생성이 안되게 막음
+	private Bank() {
+
 	}
 
 	public static String getName() {
